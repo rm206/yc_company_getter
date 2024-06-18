@@ -68,6 +68,7 @@ page_source = driver.page_source
 
 soup = BeautifulSoup(page_source, "html.parser")
 
+
 def element_attribute(soup, selector, attribute):
     try:
         elt = soup.find(class_=selector)
@@ -182,4 +183,4 @@ company_data["jobs"] = [job_data(job_url) for job_url in company_data["job_links
 driver.quit()
 
 with open("data.json", "w") as f:
-    json.dump(company_data, f, indent=2)
+    json.dump(company_data, f, indent=2, ensure_ascii=False)
